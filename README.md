@@ -23,8 +23,6 @@ Table of Content:
 
 You can obtain a username and login information from one of the Tresata representatives or from sponsor's room.
 
-NOTE: You can get the IP addresses from Slack (Infrastruture Room)
-
 ssh into a server where you can access the BBBS data.
 
     > ssh <username>@hack02.datachambers.com OR
