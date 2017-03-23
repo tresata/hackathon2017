@@ -51,11 +51,51 @@ or
 
 ## Data
 
-**Data Disctonary** : It's present on /home/shared/data-dictionary and Slack Channel for DATA
+**Data Dictionary** : It's present on /home/shared/data-dictionary and Slack hannel for DATA
 
-You can find the data on HDFS in the /data folder, which contains the full data set
+**LOCAL**
+You can find the data on local (all machines) in the /home/shared/bbbs/ directory
 
-    <To be filled in>
+```
+├── matches
+│   ├── all
+│   │   ├── child_volunteer_keys.bsv
+│   │   ├── match_details_new.bsv
+│   │   ├── match_details_old.bsv
+│   │   ├── youth_outcome_reports_new.bsv
+│   │   └── youth_outcome_reports_old.bsv
+│   ├── successful
+│   │   ├── match_details_new.bsv
+│   │   └── youth_outcome_reports_new.bsv
+│   └── unsuccessful
+│       ├── match_details_new.bsv
+│       ├── match_details_old.bsv
+│       └── youth_outcome_reports_new.bsv
+├── question_ids.bsv
+└── unmatched
+    └── rtbm_reports.bsv
+```
+
+
+**HDFS**
+You can find the data on HDFS in the /data folder
+
+    /data/bbbs/matches/all/child_volunteer_keys.bsv
+    /data/bbbs/matches/all/match_details_new.bsv
+    /data/bbbs/matches/all/match_details_old.bsv
+    /data/bbbs/matches/all/youth_outcome_reports_new.bsv
+    /data/bbbs/matches/all/youth_outcome_reports_old.bsv
+    /data/bbbs/matches/successful/match_details_new.bsv
+    /data/bbbs/matches/successful/youth_outcome_reports.bsv
+    /data/bbbs/matches/unsuccessful/match_details_new.bsv
+    /data/bbbs/matches/unsuccessful/match_details_old.bsv
+    /data/bbbs/matches/unsuccessful/match_details_old.bsv
+    /data/bbbs/unmatched/rtbm_reports.bsv
+
+
+
+
+
 
 ## Hive
 
