@@ -9,15 +9,15 @@ Table of Content:
 
 * [Getting Started](https://github.com/tresata/hackathon2017#getting-started)
 * [Machines](https://github.com/tresata/hackathon2017#machines)
-* [HDFS] (https://github.com/tresata/hackathon2017#hdfs)
-* [Data] (https://github.com/tresata/hackathon2017#data)
-* [Hive] (https://github.com/tresata/hackathon2017#hive)
-* [Spark] (https://github.com/tresata/hackathon2017#spark)
-* [pySpark] (https://github.com/tresata/hackathon2017#pyspark)
-* [Anaconda] (https://github.com/tresata/hackathon2017#anaconda)
-* [Scalding] (https://github.com/tresata/hackathon2017#scalding)
-* [Tresata Software] (https://github.com/tresata/hackathon2017#tresata-software)
-* [Resource Manager] (https://github.com/tresata/hackathon2017#resource-manager)
+* [HDFS](https://github.com/tresata/hackathon2017#hdfs)
+* [Data](https://github.com/tresata/hackathon2017#data)
+* [Hive](https://github.com/tresata/hackathon2017#hive)
+* [Spark](https://github.com/tresata/hackathon2017#spark)
+* [pySpark](https://github.com/tresata/hackathon2017#pyspark)
+* [Anaconda](https://github.com/tresata/hackathon2017#anaconda)
+* [Scalding](https://github.com/tresata/hackathon2017#scalding)
+* [Tresata Softwares](https://github.com/tresata/hackathon2017#tresata-software)
+* [Resource Manager](https://github.com/tresata/hackathon2017#resource-manager)
 
 ## Getting Started
 
@@ -55,14 +55,9 @@ or
 
 **Data Disctonary** : It's present on /home/shared/data-dictionary and Slack Channel for DATA
 
-You can find the data on HDFS in the /data folder, which contains the full data set with/without headers
+You can find the data on HDFS in the /data folder, which contains the full data set
 
     <To be filled in>
-
-The sample files are also available on the local file system:
-
-    /home/shared/
-
 
 ## Hive
 
@@ -79,9 +74,9 @@ Try pasting the following query into the hive command-line interface:
     hive> show tables;
     OK
     <To be filled in>
-    hive> select * from ht_transactions limit 10;
+    hive> select * from <To be filled in> limit 10;
 
-This will return all the fields for the first ten items in the 'ht_transactions' table.
+This will return all the fields for the first ten items in the '<To be filled in>' table.
 
 If you'd like to create a file from the command line, you can use a create table command:
 
