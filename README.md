@@ -57,6 +57,16 @@ or
 You can find the data on local (all machines) in the /home/shared/bbbs/ directory
 
 ```
+├── interviews
+│   ├── B108.doc
+│   ├── B109.doc
+│   ├── B120.doc
+│   ├── B124.doc
+│   ├── B130.doc
+│   ├── ...
+│   ├── ...
+│   ├── ...
+│   └── PCL9.doc
 ├── matches
 │   ├── all
 │   │   ├── child_volunteer_keys.bsv
@@ -65,12 +75,12 @@ You can find the data on local (all machines) in the /home/shared/bbbs/ director
 │   │   ├── youth_outcome_reports_new.bsv
 │   │   └── youth_outcome_reports_old.bsv
 │   ├── successful
-│   │   ├── match_details_new.bsv
-│   │   └── youth_outcome_reports_new.bsv
+│   │   ├── match_details.bsv
+│   │   └── youth_outcome_reports.bsv
 │   └── unsuccessful
 │       ├── match_details_new.bsv
 │       ├── match_details_old.bsv
-│       └── youth_outcome_reports_new.bsv
+│       └── youth_outcome_reports.bsv
 ├── question_ids.bsv
 └── unmatched
     └── rtbm_reports.bsv
