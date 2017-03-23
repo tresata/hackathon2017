@@ -89,19 +89,24 @@ You can find the data on HDFS in the /data folder
     /data/bbbs/matches/successful/youth_outcome_reports.bsv
     /data/bbbs/matches/unsuccessful/match_details_new.bsv
     /data/bbbs/matches/unsuccessful/match_details_old.bsv
-    /data/bbbs/matches/unsuccessful/match_details_old.bsv
     /data/bbbs/unmatched/rtbm_reports.bsv
-
-
-
-
 
 
 ## Hive
 
 In hive the following tables are available:
 
-       <To be filled in>
+    matches_all_child_volunteer_keys.bsv
+    matches_all_match_details_new.bsv
+    matches_all_match_details_old.bsv
+    matches_all_youth_outcome_reports_new.bsv
+    matches_all_youth_outcome_reports_old.bsv
+    matches_successful_match_details_new.bsv
+    matches_successful_youth_outcome_reports.bsv
+    matches_unsuccessful_match_details_new.bsv
+    matches_unsuccessful_match_details_old.bsv
+    unmatched_rtbm_reports.bsv
+
 
 Give Hive a whirl and run a sample query:
 
@@ -110,15 +115,24 @@ Give Hive a whirl and run a sample query:
 Try pasting the following query into the hive command-line interface:
 
     hive> show tables;
-    OK
+        matches_all_child_volunteer_keys.bsv
+        matches_all_match_details_new.bsv
+        matches_all_match_details_old.bsv
+        matches_all_youth_outcome_reports_new.bsv
+        matches_all_youth_outcome_reports_old.bsv
+        matches_successful_match_details_new.bsv
+        matches_successful_youth_outcome_reports.bsv
+        matches_unsuccessful_match_details_new.bsv
+        matches_unsuccessful_match_details_old.bsv
+        unmatched_rtbm_reports.bsv
     <To be filled in>
-    hive> select * from <To be filled in> limit 10;
+    hive> select * from matches_all_child_volunteer_keys limit 10;
 
 This will return all the fields for the first ten items in the '<To be filled in>' table.
 
 If you'd like to create a file from the command line, you can use a create table command:
 
-    hive> create table test row format delimited fields terminated by '|' stored as textfile as select * from default.ht_transactions limit 10;
+    hive> create table test row format delimited fields terminated by '|' stored as textfile as select * from default.matches_all_child_volunteer_keys limit 10;
 
 You can then extract the table from the hive warehouse for a table named test:
 
