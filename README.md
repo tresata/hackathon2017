@@ -14,6 +14,7 @@ Table of Content:
 * [Hive](https://github.com/tresata/hackathon2017#hive)
 * [Spark](https://github.com/tresata/hackathon2017#spark)
 * [pySpark](https://github.com/tresata/hackathon2017#pyspark)
+* [SparkR](https://github.com/tresata/hackathon2017#sparkR)
 * [Anaconda](https://github.com/tresata/hackathon2017#anaconda)
 * [Scalding](https://github.com/tresata/hackathon2017#scalding)
 * [Tresata Software](https://github.com/tresata/hackathon2017#tresata-software)
@@ -25,10 +26,7 @@ You can obtain a username and login information from one of the Tresata represen
 
 ssh into a server where you can access the BBBS data.
 
-    > ssh <username>@hack02.datachambers.com OR
-    > ssh <username>@hack03.datachambers.com OR
-    > ssh <username>@hack04.datachambers.com OR
-    > ssh <username>@hack05.datachambers.com
+    > ssh <username>@hostname
 
 and enter the password you were given.
 
@@ -152,9 +150,9 @@ Read in the data and run a simple query that calcuates the unique count of Child
     df.groupBy("ChildZip").count().collect()
 
 
-Note that for your "production" run on the full dataset you might want to increase resources used on the cluster:
+Note that for your "production" run on the dataset you might want to increase resources used on the cluster:
 
-    --num-executors 2 --executor-cores 2 --executor-memory 2G
+    --num-executors 4 --executor-memory 4G --executor-cores 4
 
 Keep in mind that a spark-shell takes up these resources on the cluster even when you do not use them so please do not keep a spark-shell with "production" resources open unused.  
 
@@ -173,11 +171,20 @@ Read in the data and run a simple query that calcuates the unique count of Child
     df = sqlContext.read.parquet("/data/bbbs-parquet/matches/active/match_details_new.parquet")
     df.groupBy("ChildZip").count().collect()
 
-Note that for your "production" run on the full dataset you might want to increase resources used on the cluster:
+Note that for your "production" run on the dataset you might want to increase resources used on the cluster:
 
-    --num-executors 2 --executor-cores 2 --executor-memory 2G
+    --num-executors 4 --executor-memory 4G --executor-cores 4
 
 Keep in mind that a pyspark takes up these resources on the cluster even when you do not use them so please do not keep a pyspark shell (interpreter) with "production" resources open unused.  
+
+## SparkR
+
+**SparkR** can be found at /usr/local/lib/spark/bin
+
+You can also do the same query using a R version of the Spark shell.
+
+    >  /usr/local/lib/spark/bin/sparkR --num-executors 4 --executor-cores 1 --executor-memory 1G
+
 
 
 ## Anaconda
@@ -241,10 +248,7 @@ run df-eval-tool
 #### TREK
 Data Inventory Engine built specifically to catalog, profile and report data ontology, quality and format attributes for all data in Hadoop. TREK rapidly profiles and inventories “as-is” data stored in Hadoop across all rows and columns to create an informed view of all valuable enterprise data feeds stored in a single Hadoop cluster.
 
-#### TIDES
-A real time and fully distributed data asset visualization, discovery, query ad aggregation engine with interactive web interface.
-
-TREK AND TIDES can be accessed via https://hack01.datachambers.com:5601
+TIDES can be accessed via https://hack01.datachambers.com:5601
 
 For login, it's the same username and password you use or SSH.
 
