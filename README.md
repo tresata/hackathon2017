@@ -157,10 +157,10 @@ Now give the Spark-shell a test:
     > /usr/local/lib/spark/bin/spark-shell --num-executors 4 --executor-cores 1 --executor-memory 1G
 
 
-Read in the data and run a simple query that calcuates the unique count of Donor_ID:
+Read in the data and run a simple query that calcuates the unique count of ChildZip:
 
-    val df = sqlContext.read.parquet("/data/full-dataset-parquet/donations.parquet")
-    df.groupBy("Donor_ID").count().collect()
+    val df = spark.sqlContext.read.parquet("/data/bbbs-parquet/matches/successful/match_details_new.parquet")
+    df.groupBy("ChildZip").count().collect()
 
 
 Note that for your "production" run on the full dataset you might want to increase resources used on the cluster:
@@ -179,10 +179,10 @@ You can also do the same query using a python version of the Spark shell.
 
     >  /usr/local/lib/spark/bin/pyspark --num-executors 4 --executor-cores 1 --executor-memory 1G
 
-Read in the data and run a simple query that calcuates the unique count of Donor_ID:
+Read in the data and run a simple query that calcuates the unique count of ChildZip:
 
-    df = sqlContext.read.parquet("/data/full-dataset-parquet/donations.parquet")
-    df.groupBy("Donor_ID").count().collect()
+    df = sqlContext.read.parquet("/data/bbbs-parquet/matches/successful/match_details_new.parquet")
+    df.groupBy("ChildZip").count().collect()
 
 Note that for your "production" run on the full dataset you might want to increase resources used on the cluster:
 
@@ -209,8 +209,8 @@ In addition to the Hive and Spark shells, we're also packaging eval-tool and df-
     (args: Args) => {
       new Job(args) {
         ScaldingUtil.sourceFromArg(args("input"))
-          .groupBy('Donor_ID) { _
-            .size('Donation_Count)
+          .groupBy('ChildZip) { _
+            .size('Zip_Count)
           } 
           .write(ScaldingUtil.sourceFromArg(args("output")))
       }
@@ -219,9 +219,9 @@ In addition to the Hive and Spark shells, we're also packaging eval-tool and df-
 
 you can run a query on the data set sample from the command-line:
 
-    > eval-tool test.scala --hdfs --input bsv%/data/sample-dataset/donations_sample.bsv --output bsv%donation_counts.bsv
+    > eval-tool test.scala --hdfs --input bsv%/data/bbbs/matches/successful/match_details_new.bsv --output bsv%zip_counts.bsv
 
-This will generate a bar-separated file called 'donation_counts' in your HDFS home directory, containing the Donor numbers along with their total counts.
+This will generate a bar-separated file called 'zip_counts' in your HDFS home directory, containing the zip numbers along with their total counts.
 
 df-eval-tool
 
@@ -236,8 +236,8 @@ df-eval-tool
           val fapi = Source.fromArg(args, "input").read(minPartitions = 1000).fieldsApi
     
           fapi
-            .groupBy('Donor_ID) { _
-              .size('Donation_Count)
+            .groupBy('ChildZip) { _
+              .size('Zip_Count)
             }
             .write(Source.fromArg(args, "output"))
         }
@@ -245,7 +245,7 @@ df-eval-tool
 
 run df-eval-tool
 
-    > df-eval-tool test.scala --input bsv%donations.bsv --output bsv%donation_counts.bsv
+    > df-eval-tool test.scala --input bsv%/data/bbbs/matches/successful/match_details_new.bsv --output bsv%zip_counts.bsv
 
 ## Tresata Software
 
@@ -255,7 +255,7 @@ Data Inventory Engine built specifically to catalog, profile and report data ont
 #### TIDES
 A real time and fully distributed data asset visualization, discovery, query ad aggregation engine with interactive web interface.
 
-TREK AND TIDES can we accessed via https://hack01.datachambers.com:5601
+TREK AND TIDES can be accessed via https://hack01.datachambers.com:5601
 
 For login, it's the same username and password you use or SSH.
 
