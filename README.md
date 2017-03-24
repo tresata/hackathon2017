@@ -49,7 +49,7 @@ or
 
 ## Data
 
-**Data Dictionary** : It's present on /home/shared/data-dictionary and Slack hannel for DATA
+**Data Dictionary** : It's present on /home/shared/data-dictionary and Slack hannel for DATA and [here](https://github.com/tresata/hackathon2017/blob/master/datadictionary)
 
 **LOCAL**
 You can find the data on local (all machines) in the /home/shared/bbbs/ directory
