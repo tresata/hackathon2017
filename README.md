@@ -248,7 +248,7 @@ run df-eval-tool
 #### TREK
 Data Inventory Engine built specifically to catalog, profile and report data ontology, quality and format attributes for all data in Hadoop. TREK rapidly profiles and inventories “as-is” data stored in Hadoop across all rows and columns to create an informed view of all valuable enterprise data feeds stored in a single Hadoop cluster.
 
-TIDES can be accessed via https://hack01.datachambers.com:5601
+TREK can be accessed via https://hack01.datachambers.com:5601
 
 For login, it's the same username and password you use or SSH.
 
