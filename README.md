@@ -26,7 +26,11 @@ You can obtain a username and login information from one of the Tresata represen
 
 ssh into a server where you can access the BBBS data.
 
-    > ssh <username>@hostname
+    > ssh <username>@hack02.datachambers.com OR
+    > ssh <username>@hack03.datachambers.com OR
+    > ssh <username>@hack04.datachambers.com OR
+    > ssh <username>@hack05.datachambers.com
+    
 
 and enter the password you were given.
 
