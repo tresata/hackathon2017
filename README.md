@@ -103,7 +103,6 @@ You can find the data on HDFS in the /data folder
     /data/bbbs/matches/unsuccessful/match_details_old.bsv
     /data/bbbs/unmatched/rtbm_reports.bsv
 
-
 ## Hive
 
 Give Hive a whirl and run a sample query:
@@ -137,7 +136,7 @@ If you'd like to create a file from the command line, you can use a create table
 
 You can then extract the table from the hive warehouse for a table named test:
 
-    hadoop fs -text /user/hive/warehouse/test/*.snappy > textfile
+    df-source-cat --input hive%bbbs.question_ids > textfile
 
 ## Spark
 
@@ -150,7 +149,7 @@ Now give the Spark-shell a test:
 
 Read in the data and run a simple query that calcuates the unique count of ChildZip:
 
-    val df = spark.sqlContext.read.parquet("/data/bbbs-parquet/matches/successful/match_details_new.parquet")
+    val df = spark.sqlContext.read.parquet("/data/bbbs-parquet/matches/active/match_details_new.parquet")
     df.groupBy("ChildZip").count().collect()
 
 
@@ -190,7 +189,6 @@ You can also do the same query using a R version of the Spark shell.
     >  /usr/local/lib/spark/bin/sparkR --num-executors 4 --executor-cores 1 --executor-memory 1G
 
 
-
 ## Anaconda
 Anaconda is a completely free Python distribution from [Continuum Analytics](https://www.continuum.io). It includes more than 400 of the most popular Python packages for science, math, engineering, and data analysis. See [the packages included with Anaconda](http://docs.continuum.io/anaconda/pkg-docs).
 
@@ -214,7 +212,7 @@ In addition to the Hive and Spark shells, we're also packaging eval-tool and df-
           } 
           .write(ScaldingUtil.sourceFromArg(args("output")))
       }
-   } 
+    } 
 
 
 you can run a query on the data set sample from the command-line:
@@ -225,7 +223,6 @@ This will generate a bar-separated file called 'zip_counts' in your HDFS home di
 
 df-eval-tool
 
-    spark_eval_example.scala
     import com.twitter.scalding.Args
     import com.tresata.spark.sql.Job
     import com.tresata.spark.sql.source.Source
@@ -233,7 +230,7 @@ df-eval-tool
     (args : Args) =>
       new Job(args) {
         override def run = {
-          val fapi = Source.fromArg(args, "input").read(minPartitions = 1000).fieldsApi
+          val fapi = Source.fromArg(args, "input").read.fieldsApi
     
           fapi
             .groupBy('ChildZip) { _
