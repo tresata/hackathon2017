@@ -214,22 +214,21 @@ In addition to the Hive and Spark shells, we're also packaging eval-tool and df-
 
     import com.twitter.scalding._
     import com.tresata.scalding.Dsl._
-    import com.tresata.scalding.util.ScaldingUtil
 
     (args: Args) => {
       new Job(args) {
-        ScaldingUtil.sourceFromArg(args("input"))
+        Csv(args("input"), separator="|", skipHeader = true) .read
           .groupBy('ChildZip) { _
             .size('Zip_Count)
           } 
-          .write(ScaldingUtil.sourceFromArg(args("output")))
+          .write(Csv(args("output"), separator="|", writeHeader = true))
       }
     } 
 
 
 you can run a query on the data set sample from the command-line:
 
-    > eval-tool test.scala --hdfs --input bsv%/data/bbbs/matches/active/match_details_new.bsv --output bsv%zip_counts.bsv
+    > eval-tool test.scala --hdfs --input /data/bbbs/matches/active/match_details_new.bsv --output zip_counts.bsv
 
 This will generate a bar-separated file called 'zip_counts' in your HDFS home directory, containing the zip numbers along with their total counts.
 
