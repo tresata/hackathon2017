@@ -147,6 +147,8 @@ You can then extract the table from the hive warehouse for a table named test:
 We are also running hive-server on hack02.datachambers.com, hack03.datachambers.com, hack04.datachambers.com and hack05.datachambers.com. You can connect to them with JDBC/ODBC. For example to connect to hack04 with JDBC you would use this connect string:
 
     jdbc:hive2://hack04.datachambers.com:10000
+    
+If you need to provide a username and password, use the username we provided for SSH login and leave the password blank. 
 
 ## Spark
 
