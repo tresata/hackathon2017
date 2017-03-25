@@ -236,24 +236,28 @@ df-eval-tool
 
     import com.twitter.scalding.Args
     import com.tresata.spark.sql.Job
-    import com.tresata.spark.sql.source.Source
 
     (args : Args) =>
       new Job(args) {
         override def run = {
-          val fapi = Source.fromArg(args, "input").read.fieldsApi
-    
-          fapi
-            .groupBy('ChildZip) { _
-              .size('Zip_Count)
-            }
-            .write(Source.fromArg(args, "output"))
+          import spark.implicits._
+          
+          spark.read.format("csv")
+            .option("header", true)
+            .option("delimiter", "|")
+            .option("inferSchema", true)
+            .load(args("input"))
+            .groupBy($"ChildZip").count($"Zip_Count")
+            .write.format("csv")
+            .option("header", true)
+            .option("delimiter", "|")
+            .save(args("output"))
         }
       }
 
 run df-eval-tool
 
-    > df-eval-tool test.scala --input bsv%/data/bbbs/matches/active/match_details_new.bsv --output bsv%zip_counts.bsv
+    > df-eval-tool test.scala --input /data/bbbs/matches/active/match_details_new.bsv --output zip_counts.bsv
 
 ## Tresata Software
 
