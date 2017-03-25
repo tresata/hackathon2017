@@ -243,14 +243,11 @@ df-eval-tool
           import spark.implicits._
           
           spark.read.format("csv")
-            .option("header", true)
-            .option("delimiter", "|")
-            .option("inferSchema", true)
+            .option("header", true).option("delimiter", "|").option("inferSchema", true)
             .load(args("input"))
-            .groupBy($"ChildZip").count($"Zip_Count")
+            .groupBy($"ChildZip").count()
             .write.format("csv")
-            .option("header", true)
-            .option("delimiter", "|")
+            .option("header", true).option("delimiter", "|")
             .save(args("output"))
         }
       }
