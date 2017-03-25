@@ -143,6 +143,10 @@ If you'd like to create a file from the command line, you can use a create table
 You can then extract the table from the hive warehouse for a table named test:
 
     df-source-cat --input hive%bbbs.question_ids > textfile
+    
+We are also running hive-server on hack02.datachambers.com, hack03.datachambers.com, hack04.datachambers.com and hack05.datachambers.com. You can connect to them with JDBC/ODBC. For example to connect to hack04 with JDBC you would use this connect string:
+
+    jdbc:hive2://hack04.datachambers.com:10000
 
 ## Spark
 
