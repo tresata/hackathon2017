@@ -266,3 +266,13 @@ For login, it's the same username and password you use or SSH.
 ## Resource Manager
 
 http://hack01.datachambers.com:8088/
+
+## Samba File Server
+We are running a samba server for remote access to the data files. In Windows this is also known as a Network Drive. The share location is:
+
+    smb://hack01.datachambers.com/myshare/
+    
+On windows you would specify this as:
+
+    \\hack01.datachambers.com\myshare
+
